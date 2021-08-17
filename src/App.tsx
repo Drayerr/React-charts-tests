@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { GlobalStyle } from './styles/global'
+import Modal from 'react-modal'
 
-function App() {
+import { ChartModal } from './components/ChartModal'
+import { Header } from './components/Header'
+
+Modal.setAppElement('#root')
+
+export function App() {
+  const [isChartModalOpen, setIsChartModalOpen] = useState(false)
+
+  function handleOpenChartModal() {
+    setIsChartModalOpen(true)
+  }
+
+  function handleCloseChartModal() {
+    setIsChartModalOpen(false)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <>
+        <Header openChartModal={handleOpenChartModal}/>
+
+        <ChartModal isOpen={isChartModalOpen} onRequestClose={handleCloseChartModal}/>
+
+        <GlobalStyle />
+      </>
     </div>
   );
 }
-
-export default App;
