@@ -5,9 +5,10 @@ import { GoogleLineChart } from '../GoogleLineChart'
 interface ChartModalProps {
   isOpen: boolean
   onRequestClose: () => void
+  chartTitle: string
 }
 
-export function ChartModal({ isOpen, onRequestClose } : ChartModalProps) {
+export function ChartModal({ isOpen, onRequestClose, chartTitle } : ChartModalProps) {
 
   return(
     <Modal
