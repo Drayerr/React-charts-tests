@@ -1,7 +1,6 @@
 import Modal from 'react-modal'
 
 import { GoogleLineChart } from '../GoogleLineChart'
-
 interface ChartModalProps {
   isOpen: boolean
   onRequestClose: () => void

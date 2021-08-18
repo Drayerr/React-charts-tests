@@ -5,6 +5,8 @@ import Modal from 'react-modal'
 import { ChartModal } from './components/ChartModal'
 import { Dashboard } from './components/Dashboard'
 
+import ChartDataProvider from './Hooks/useCharts'
+
 Modal.setAppElement('#root')
 
 export function App() {
@@ -24,13 +26,15 @@ export function App() {
 
   return (
     <div className="App">
-      <>
-        <Dashboard openChartModal={handleOpenChartModal}/>
+      <ChartDataProvider>
 
-        <ChartModal isOpen={isChartModalOpen} onRequestClose={handleCloseChartModal} chartTitle={chartSelected}/>
+        <Dashboard openChartModal={handleOpenChartModal} />
+
+        <ChartModal isOpen={isChartModalOpen} onRequestClose={handleCloseChartModal} chartTitle={chartSelected} />
 
         <GlobalStyle />
-      </>
+        
+      </ChartDataProvider>
     </div>
   );
 }
