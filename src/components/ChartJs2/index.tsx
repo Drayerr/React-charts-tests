@@ -26,8 +26,8 @@ export function ChartJs2() {
         ]
       }}
 
-      height={400}
-      width={600}
+      height={200}
+      width={300}
 
       options={{
         maintainAspectRatio: false,
